@@ -1,0 +1,88 @@
+<HTML>
+    <HEAD>
+        <TITLE>
+            Search the Library of Babel
+        </TITLE>
+        <LINK REL="stylesheet" TYPE="text/css" HREF="./Browse the Hexes_files/text.css">
+        <script src="./Browse the Hexes_files/jquery/jquery.min.js"></script>
+        <script src="./Browse the Hexes_files/babel.js" charset="utf-8"></script>
+        <script src="./Browse the Hexes_files/libraryofbabel.js" charset="utf-8"></script>
+        <LINK REL="shortcut icon" TYPE="image/x-icon" HREF="./favicon.png">
+        <meta name="description" content="Search the texts of the Library of Babel. Infinite, or at least indefinite, possibilities.">
+        <meta name="keywords" content = "library of babel, Jorge Luis Borges, universal library">
+        <meta charset="UTF-8">
+    </HEAD>
+    <BODY id="body">
+        <div class = "searchcontainer2" style = "position: relative; top:75px;">
+            <DIV id ="divider" style="position: relative; top: 5px">
+                    <p class = "textsearch">
+                        Enter up to 3200 characters:
+                        <br>
+                        <br>
+                        <textarea style = "width: 300px; height: 125px; font-size:14px; font-family: Courier" maxlength="3200" id='search_str' autofocus></textarea>
+                    </p>
+                        <p class = "textsearch" style = "width:500px; position: relative; margin-right: auto; margin-left: auto; top:-10px;" id = "advice">
+                            The library contains only lower-case letters, space, comma, and period.
+                        </p>
+                        <p id = "image" style = "text-align: center; position: relative;">
+                            <button id = "search" style = "width: 100px; position: relative; top:-10px;">
+                                Search
+                            </button>
+                            <br>
+                        </p>
+                <p id = "link" style="position: relative; top:-10px; text-align: center; left:1px; font-size: 17; font-family: 'Courier',monospace">
+                    <a style = "font-family: 'Courier', monospace" class = "intext" href="./Home.html">
+                        Back to Portal
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="read" style="display: block; margin-top: 112px;">
+        <div id="search_results">
+    
+        </div>
+        <input id="hex" style="visibility: hidden;"></input>
+        <select id="wall" style="visibility: hidden;"></select>
+        <select id="shelf" style="visibility: hidden;"></select>
+        <select id="volume" style="visibility: hidden;"></select>
+        <p style="top: -140px; right: 5px">
+            Page: <select name="page" id="page" style="display:initial; font-size:14px; text-align:center; font-family: Courier; top:-140px; right: 5px;"></select>
+            <button type="button" id="read">
+                Read
+            </button>
+        </p>
+        <button type="button" id="read">
+            Read
+        </button>
+    <center>
+    <div id="book">
+        <span id="title" style="font-size:xx-large; font-weight: bold; font-variant-caps:petite-caps;"></span><br>
+        <pre id="result">
+    
+        </pre>
+    </div>
+    </center>
+    </div>
+    <script>
+        var body = document.getElementById("body");
+        var book = document.getElementById("book");
+        var page = document.getElementById("page");
+        var read = document.getElementById("read");
+        var search = document.getElementById("search");
+
+        body.onload = function() {
+          book.style.outline = "1px solid"
+          book.style.padding = "75px"
+        }
+
+        page.onchange = function() {
+            read.style.visibility = "visible"
+        }
+
+        read.onclick = function() {
+            read.style.visibility = "hidden"
+        }
+
+      </script>
+    </BODY>
+</HTML>
