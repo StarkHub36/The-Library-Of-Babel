@@ -1,5 +1,9 @@
 # The-Library-Of-Babel
 
+The Library of Babel is based on a book by Jorge Luise Borges.
+"The Library of Babel" is a short story by Argentine author and librarian Jorge Luis Borges,
+conceiving of a universe in the form of a vast library containing all possible 410-page books of a certain format and character set
+
 This is the Library Of Babel originaly created my Jonathan Basile.
 Jonathan Basile made the Library of Babel in C#
 
