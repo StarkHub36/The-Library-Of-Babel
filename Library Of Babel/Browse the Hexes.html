@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Browse the Hexes</title>
+    <script src="./Browse the Hexes_files/jquery/jquery.min.js"></script>
+    <script src="./Browse the Hexes_files/babel.js" charset="utf-8"></script>
+    <script src="./Browse the Hexes_files/libraryofbabel.js" charset="utf-8"></script>
+    <script src="./Browse the Hexes_files/jquery.min.js"></script>
+    <script src="./Browse the Hexes_files/browse.js" type="text/javascript"></script>
+    <meta name="author" content="Jonathan Basile">
+    <meta name="keywords" content="library of babel, Jorge Luis Borges, universal library, literature, conceptual art">
+    <meta name="description" content="Browse the hexagons of the Library of Babel. Here fearless librarians may check out any book they desire. Literally, any.">
+    <link rel="stylesheet" type="text/css" href="./Browse the Hexes_files/text.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.png">
+  </head>
+  <body class="babel" onload="checkminfont(); frombook()">
+    <div id="container" class="browsecont">
+      <div id="outerhex" class="browseskinny">
+        <br>
+        <form>
+          Hex Name:
+          <br>
+          <br>
+          <textarea id="hex" name="hex" maxlength="3360" style="font-size: 14px; font-family: Courier; width: 200px; height: 33px; text-align: center; align-self: center;" onkeypress="gethex(event,this.value)" autofocus="">0</textarea>
+        </form>
+        <p id="advice" style="position: relative; top:-13px"></p>
+        <p id="walltext" style="display: inline; position: relative; right: 15px; top: 50px;">
+          Wall:
+        </p>
+        <select name="wall" id="wall" style="font-size: 14px; text-align: center; font-family: Courier; position: relative; top: 50px; right: 15px; display: inline;">
+          <option></option>
+          <option id="wmenu1" value="w1">
+            1
+          </option>
+          <option value="w2">
+            2
+          </option>
+          <option value="w3">
+            3
+          </option>
+          <option value="w4">
+            4
+          </option>
+        </select>
+        <p></p>
+        <img id="browsehex" style="position: relative; height: 320px; width: 315px; display: inline-block;" src="./Browse the Hexes_files/browsehex.png" usemap="#wallmap">
+        <map id="wallmap" name="wallmap">
+          <area id="west" shape="poly" coords="0,200,70,200,105,140,105,20" href="javascript:void(0);" onclick="getwall(&#39;w4&#39;)" alt="wall 4">
+          <area id="north" shape="rect" coords="106,40,230,140" href="javascript:void(0);" onclick="getwall(&#39;w1&#39;)" alt="wall 1">
+          <area id="east" shape="poly" coords="270,170,300,170,260,270,220,290" href="javascript:void(0);" onclick="getwall(&#39;w2&#39;)" alt="wall 2">
+          <area id="south" shape="rect" coords="100,275,219,300" href="javascript:void(0);" onclick="getwall(&#39;w3&#39;)" alt="wall 3">
+        </map>
+        <p id="shelftext" style="display: none; position: relative; right: 7px; top: -25px">
+          Shelf:
+        </p>
+        <select name="shelf" id="shelf" style="font-size:14px; text-align:center; font-family: Courier;  position: relative; top: -25px">
+          <option></option>
+          <option value="s1">
+            1
+          </option>
+          <option value="s2">
+            2
+          </option>
+          <option value="s3">
+            3
+          </option>
+          <option value="s4">
+            4
+          </option>
+          <option value="s5">
+            5
+          </option>
+        </select>
+        <img id="browsewall" style="position: relative; top:5px; height: 1px; width: 1px" src="./Browse the Hexes_files/bookshelf3.png" usemap="#shelfmap">
+        <map id="shelfmap" name="shelfmap">
+          <area id="s1" shape="rect" coords="25,15,432,75" href="javascript:void(0);" onclick="shelverx(&#39;s1&#39;)" alt="shelf 1">
+          <area id="s2" shape="rect" coords="25,77,432,137" href="javascript:void(0);" onclick="shelverx(&#39;s2&#39;)" alt="shelf 2">
+          <area id="s3" shape="rect" coords="25,140,432,200" href="javascript:void(0);" onclick="shelverx(&#39;s3&#39;)" alt="shelf 3">
+          <area id="s4" shape="rect" coords="25,203,432,263" href="javascript:void(0);" onclick="shelverx(&#39;s4&#39;)" alt="shelf 4">
+          <area id="s5" shape="rect" coords="25,266,432,326" href="javascript:void(0);" onclick="shelverx(&#39;s5&#39;)" alt="shelf 5">
+        </map>
+        <p></p>
+        <img src="./Browse the Hexes_files/browsehexeast.png" style="display: none;">
+        <img src="./Browse the Hexes_files/browsehexwest.png" style="display: none;">
+        <img src="./Browse the Hexes_files/browsehexnorth3.png" style="display: none;">
+        <img src="./Browse the Hexes_files/browsehexsouth.png" style="display: none;">
+        <img src="./Browse the Hexes_files/bookshelf2s1.png" style="display: none;">
+        <img src="./Browse the Hexes_files/bookshelf2s2.png" style="display: none;">
+        <img src="./Browse the Hexes_files/bookshelf2s3.png" style="display: none;">
+        <img src="./Browse the Hexes_files/bookshelf2s4.png" style="display: none;">
+        <img src="./Browse the Hexes_files/bookshelfs5.png" style="display: none;">
+        <div class="preload">
+          a
+        </div>
+        <p id="volumetext" style="display: none; position: relative; top: -140px; right: 5px">
+          Volume:
+        </p>
+        <select name="volume" id="volume" style="font-size:14px; text-align:center; font-family: Courier;  position: relative; top:-140px; right: 5px;">
+          <option></option>
+          <option value="v01">
+            1
+          </option>
+          <option value="v02">
+            2
+          </option>
+          <option value="v03">
+            3
+          </option>
+          <option value="v04">
+            4
+          </option>
+          <option value="v05">
+            5
+          </option>
+          <option value="v06">
+            6
+          </option>
+          <option value="v07">
+            7
+          </option>
+          <option value="v08">
+            8
+          </option>
+          <option value="v09">
+            9
+          </option>
+          <option value="v10">
+            10
+          </option>
+          <option value="v11">
+            11
+          </option>
+          <option value="v12">
+            12
+          </option>
+          <option value="v13">
+            13
+          </option>
+          <option value="v14">
+            14
+          </option>
+          <option value="v15">
+            15
+          </option>
+          <option value="v16">
+            16
+          </option>
+          <option value="v17">
+            17
+          </option>
+          <option value="v18">
+            18
+          </option>
+          <option value="v19">
+            19
+          </option>
+          <option value="v20">
+            20
+          </option>
+          <option value="v21">
+            21
+          </option>
+          <option value="v22">
+            22
+          </option>
+          <option value="v23">
+            23
+          </option>
+          <option value="v24">
+            24
+          </option>
+          <option value="v25">
+            25
+          </option>
+          <option value="v26">
+            26
+          </option>
+          <option value="v27">
+            27
+          </option>
+          <option value="v28">
+            28
+          </option>
+          <option value="v29">
+            29
+          </option>
+          <option value="v30">
+            30
+          </option>
+          <option value="v31">
+            31
+          </option>
+          <option value="v32">
+            32
+          </option>
+        </select>
+        <img id="browseshelf" style="width:1px; height:1px" class="bookshelf" src="./Browse the Hexes_files/singleshelfsmaller.png">
+        <div id="concealer" class="concealer">
+          <div class="titles" id="sideways" style="position: relative; display: none;">
+            <p class="volumes" id="volumes"></p>
+          </div>
+        </div>
+      </div>
+      <div id="link" class="bothug" style="position: relative; top: 10px; left: 3px; display: block;">
+        <a class="intext" href="./Home.html">
+          Back to Portal
+        </a>
+      </div>
+    </div>
+    <div id="min-font-size-tester" style="font-size: 2px; line-height: 1; display: none;">
+      M
+    </div>
+    <div class="read" style="display: block; margin-top: 600px;">
+      <button type="button" id="read">
+        Read
+      </button>
+      <br>
+      <br>
+      <p style="top: -140px; right: 5px">
+        Page: <select name="page" id="page" style="display:initial; font-size:14px; text-align:center; font-family: Courier; top:-140px; right: 5px;"></select>
+      </p>
+      <br>
+      <center>
+        <div id="book">
+          <span id="title" style="font-size:xx-large; font-weight: bold; font-variant-caps:petite-caps;"></span>
+        
+          <br>
+          <pre id="result">
+        
+          </pre>
+        </div>
+      </center>
+    </div>
+    <script>
+      var volume = document.getElementById("volume");
+      var read = document.getElementById("read")
+
+      volume.onchange = function() {
+        read.style.visibility = "visible"
+      }
+
+      var read = document.getElementById("read");
+      var book = document.getElementById("book")
+
+      read.onclick = function() {
+        book.style.outline = "1px solid"
+        book.style.padding = "75px"
+      }
+    </script>
+  </body>
+</html>
