@@ -6,3 +6,5 @@ Jonathan Basile made the Library of Babel in C#
 C# Version can be found [here](https://www.libraryofbabel.info)
 
 Then I made a JS version of The Library of Babel but sadly I couldn't make the image archives of The Library of Babel
+
+JS Version can be found [here](https://starkhub36.github.io/The-Library-Of-Babel/)
